@@ -27,9 +27,9 @@ const userInput = ( props ) => {
     };
 
     return (
-        <div className="input-wrapper" style={wrapperStyle}>
-            <input type="text" placeholder="enter a new username..." style={inputStyle} />
-            <button onClick={props.click} style={buttonStyle}>Change!</button>
+        <div className="input-wrapper" style={ wrapperStyle }>
+            <input onChange={ props.change } type="text" placeholder="enter a new username..." style={ inputStyle } />
+            <button onClick={ props.click } style={ buttonStyle }>Change!</button>
         </div>
     );
 };

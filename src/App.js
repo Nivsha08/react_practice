@@ -9,20 +9,27 @@ import UserInput from './UserForm/UserInput';
 class App extends Component {
 
   state = {
-    username: "Nivsha08"
+    username: "Nivsha08",
+    input: "",
   };
 
   changeUsername = () => {
     this.setState({
-        username: "Niv08"
+        username: this.state.input
     });
+  };
+
+  inputBind = ( event ) => {
+      this.setState({
+          input: event.target.value
+      });
   };
 
   render() {
     return (
       <div className="App">
-          <UserOutput username={this.state.username} />
-          <UserInput click={this.changeUsername} />
+          <UserOutput username={ this.state.username } />
+          <UserInput change={ this.inputBind } click={ this.changeUsername } />
       </div>
     );
   }
