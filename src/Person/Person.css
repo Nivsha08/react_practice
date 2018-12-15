@@ -1,0 +1,11 @@
+.person-wrapper {
+    margin: 2rem auto;
+    width: 30%;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: rgba(113, 238, 119, .3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
