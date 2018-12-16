@@ -1,51 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
-import UserOutput from './UserForm/UserOutput';
-import UserInput from './UserForm/UserInput';
+
 
 
 class App extends Component {
 
   state = {
-    username: "Nivsha08",
-    input: "",
-    showForm: true
+    persons: [
+        { id: 1, name: "Niv", age: 25, status: "" },
+        { id: 2, name: "Prague", age: 22, status: "" },
+        { id: 3, name: "Roie", age: 26, status: "" },
+        { id: 4, name: "Yael", age: 24, status: "" },
+    ]
   };
 
-  toggleForm = () => {
-      this.setState({
-          showForm: !this.state.showForm
-      });
+  deletePerson = (index) => {
+    const newList = [...this.state.persons];
+    newList.splice(index, 1);
+    this.setState({ persons: newList });
   };
 
-  changeUsername = () => {
-    this.setState({
-        username: this.state.input
-    });
-  };
-
-  inputBind = ( event ) => {
-      this.setState({
-          input: event.target.value
-      });
+  statusUpdateHandler = (event, i) => {
+    if (event.target.value.length === 0) return;
+    const index = this.state.persons.findIndex(p => p.id === i);
+    const p = {...this.state.persons[index]};
+    p.status = event.target.value;
+    const persons = [...this.state.persons];
+    persons[index] = p;
+    this.setState({persons});
+    event.target.value = "";
   };
 
   render() {
-    let userForm = null;
-    if ( this.state.showForm ) {
-        userForm = (
-            <div>
-                <UserOutput username={ this.state.username } />
-                <UserInput change={ this.inputBind } click={ this.changeUsername } />
-            </div>
-        );
-    }
     return (
       <div className="App">
-          <button onClick={ this.toggleForm }>TOGGLE</button>
-          { userForm }
+          {this.state.persons.map((p, i) => {
+              return <Person name={p.name} age={p.age} status={p.status} key={p.id}
+                             update={event => this.statusUpdateHandler(event, p.id)}
+                             click={this.deletePerson.bind(this, i)} />
+          })}
       </div>
     );
   }
