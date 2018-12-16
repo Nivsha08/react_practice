@@ -11,6 +11,13 @@ class App extends Component {
   state = {
     username: "Nivsha08",
     input: "",
+    showForm: true
+  };
+
+  toggleForm = () => {
+      this.setState({
+          showForm: !this.state.showForm
+      });
   };
 
   changeUsername = () => {
@@ -26,10 +33,19 @@ class App extends Component {
   };
 
   render() {
+    let userForm = null;
+    if ( this.state.showForm ) {
+        userForm = (
+            <div>
+                <UserOutput username={ this.state.username } />
+                <UserInput change={ this.inputBind } click={ this.changeUsername } />
+            </div>
+        );
+    }
     return (
       <div className="App">
-          <UserOutput username={ this.state.username } />
-          <UserInput change={ this.inputBind } click={ this.changeUsername } />
+          <button onClick={ this.toggleForm }>TOGGLE</button>
+          { userForm }
       </div>
     );
   }
