@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
+import "./ValidationExercise/validators.scss";
 import ValidationComponent from './ValidationExercise/ValidationComponent';
 import CharComponent from './ValidationExercise/CharComponent';
 
@@ -9,6 +10,8 @@ class App extends Component {
     message: "",
     length: 0
   };
+
+  classes = [];
 
   changeHandler = (event) => {
     this.setState({
@@ -28,21 +31,22 @@ class App extends Component {
 
   render() {
     const textArray = this.state.message.slice().split('');
+    this.classes = this.state.length > 5 ? ["valid"] : ["error"];
     return (
       <div className="App">
           <input type="text" placeholder="enter your text..." onChange={this.changeHandler}/>
-          <p>{this.state.length}</p>
+          <p className={this.classes.join(' ')}>{this.state.length}</p>
           <h4>Validator:</h4>
           <ValidationComponent length={this.state.length} />
           <hr/>
           <h4>Output Text:</h4>
-          {
-            textArray.map((l, index) => {
-              return (
-                <CharComponent letter={l} key={index} click={() => this.deleteCharHandler(index)} />
-              );
-            })
-          }
+          <div className="char-list-wrapper">
+              {textArray.map((l, index) => {
+                  return (
+                      <CharComponent letter={l} key={index} click={() => this.deleteCharHandler(index)} />
+                  );
+              })}
+          </div>
       </div>
     );
   }
