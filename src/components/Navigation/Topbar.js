@@ -4,7 +4,7 @@ import NavItems from './NavItems'
 
 const topBar = () => {
     return (
-        <div id="topbar">
+        <div id="topbar" className="container-fluid">
             <Logo/>
             <NavItems/>
         </div>
