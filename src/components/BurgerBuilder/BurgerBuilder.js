@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Controller from "./Controller"
+import BurgerPreview from "./BurgerPreview"
 
 class BurgerBuilder extends Component {
     state = {
@@ -9,7 +10,7 @@ class BurgerBuilder extends Component {
             {name: "Lettuce", quantity: 0},
             {name: "Cucumber", quantity: 0},
             {name: "Tomato", quantity: 0},
-        ]
+        ],
     };
 
     handleIncreaseIngredient = i => {
@@ -27,6 +28,7 @@ class BurgerBuilder extends Component {
     render() {
         return (
           <div className="page-wrapper">
+              <BurgerPreview ingredients={this.state.ingredients}/>
               <Controller ingredients={this.state.ingredients}
                           minus={this.handleDecreaseIngredient}
                           plus={this.handleIncreaseIngredient} />

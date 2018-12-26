@@ -1,0 +1,69 @@
+$bunColor: #ffeaa7;
+$cucumberColor: #6ab04c;
+$lettuceColor: #badc58;
+$tomatoColor: #e74c3c;
+$onionColor: #cd84f1;
+$meatColor: #783c28;
+
+.burger-preview-wrapper {
+  padding: 1rem;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.ingredient {
+  margin: .2rem 0;
+}
+
+.top-bun {
+  background-color: $bunColor;
+  border-radius: 50% 50% 15% 15%;
+  width: 40%;
+  height: 100px;
+}
+
+.onion {
+  background-color: $onionColor;
+  border-radius: 40%;
+  height: 15px;
+  width: 35%;
+}
+
+.lettuce {
+  background-color: $lettuceColor;
+  border-radius: 15% 15%;
+  height: 10px;
+  width: 45%;
+}
+
+.tomato {
+  background-color: $tomatoColor;
+  border-radius: 30%;
+  height: 20px;
+  width: 30%;
+}
+
+.cucumber {
+  background-color: $cucumberColor;
+  border-radius: 30%;
+  height: 20px;
+  width: 30%;
+}
+
+.meat {
+  background-color: $meatColor;
+  border-radius: 10px;
+  height: 35px;
+  width: 35%;
+}
+
+.bottom-bun {
+  background-color: $bunColor;
+  border-radius: 10px 10px 25% 25%;
+  height: 40px;
+  width: 40%;
+}
+
