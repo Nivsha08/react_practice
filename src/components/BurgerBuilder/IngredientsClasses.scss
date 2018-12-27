@@ -1,9 +1,11 @@
-$bunColor: #ffeaa7;
-$cucumberColor: #6ab04c;
-$lettuceColor: #badc58;
-$tomatoColor: #e74c3c;
-$onionColor: #cd84f1;
-$meatColor: #783c28;
+$top-bun-color: linear-gradient(to top, #F2C94C, #F2994A);
+$bottom-bun-color: linear-gradient(to bottom, #F2C94C, #F2994A);
+$cucumber-color: #6ab04c;
+$lettuce-color: #badc58;
+$tomato-color: #e74c3c;
+$onion-color: #cd84f1;
+$cheese-color: #f9ca24;
+$meat-color: #783c28;
 
 .burger-preview-wrapper {
   padding: 1rem;
@@ -11,59 +13,63 @@ $meatColor: #783c28;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  min-height: 500px;
 }
 
-.ingredient {
-  margin: .2rem 0;
+%ingredient {
+  margin: .1rem 0;
+  border-radius: 10px;
+  width: 30%;
 }
 
 .top-bun {
-  background-color: $bunColor;
+  background: $top-bun-color;
   border-radius: 50% 50% 15% 15%;
-  width: 40%;
+  width: 33%;
   height: 100px;
 }
 
+.bottom-bun {
+  background: $bottom-bun-color;
+  border-radius: 10px 10px 25% 25%;
+  height: 40px;
+  width: 33%;
+}
+
 .onion {
-  background-color: $onionColor;
-  border-radius: 40%;
+  @extend %ingredient;
+  background-color: $onion-color;
   height: 15px;
-  width: 35%;
 }
 
 .lettuce {
-  background-color: $lettuceColor;
-  border-radius: 15% 15%;
-  height: 10px;
-  width: 45%;
+  @extend %ingredient;
+  background-color: $lettuce-color;
+  height: 15px;
 }
 
 .tomato {
-  background-color: $tomatoColor;
-  border-radius: 30%;
-  height: 20px;
-  width: 30%;
+  @extend %ingredient;
+  background-color: $tomato-color;
+  height: 15px;
 }
 
 .cucumber {
-  background-color: $cucumberColor;
-  border-radius: 30%;
+  @extend %ingredient;
+  background-color: $cucumber-color;
+  height: 15px;
+}
+
+.cheese {
+  @extend %ingredient;
+  background-color: $cheese-color;
   height: 20px;
-  width: 30%;
 }
 
 .meat {
-  background-color: $meatColor;
-  border-radius: 10px;
+  @extend %ingredient;
+  background-color: $meat-color;
   height: 35px;
-  width: 35%;
-}
-
-.bottom-bun {
-  background-color: $bunColor;
-  border-radius: 10px 10px 25% 25%;
-  height: 40px;
-  width: 40%;
 }
 

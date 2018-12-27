@@ -8,20 +8,21 @@ const burgerPreview = ( props ) => {
             ...props.ingredients,
             {name: "bottom-bun", quantity: 1}
         ];
-    const preview = [];
+    let preview = [];
     ingredientList.forEach(p => {
        if (p.quantity > 0)
            for (let j = 0; j < p.quantity; j++)
                preview.push(p);
     });
-    const renderPreview = preview.map((p, index) => (
+    preview = preview.map((p, index) => (
         <Ingredient ingredient={p.name.toLowerCase()} key={index} />
     ));
-    console.log(preview);
-    console.log(renderPreview);
+    if (preview.length === 2) {
+        preview = <div className="alert alert-success">Please add some ingredients to your burger!</div>
+    }
     return (
       <div className="burger-preview-wrapper">
-          {renderPreview}
+          {preview}
       </div>
     );
 };

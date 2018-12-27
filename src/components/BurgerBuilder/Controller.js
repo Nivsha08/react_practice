@@ -5,7 +5,7 @@ import BuildControl from "./BuildControl";
 const controller = ( props ) => {
 
     const ingredientList = props.ingredients.map((p, i) => (
-            <BuildControl ingredient={p.name} quantity={p.quantity}
+            <BuildControl ingredient={p.name} quantity={p.quantity} price={p.price}
                           index={i}
                           key={i}
                           plus={props.plus}
@@ -14,10 +14,8 @@ const controller = ( props ) => {
 
     return (
       <div className="controller">
-          <h4>BUILD YOUR BURGER</h4>
+          <h4>Choose your ingredients</h4>
           {ingredientList}
-          <hr/>
-          <button className="btn btn-md btn-success">Checkout</button>
       </div>
     );
 };

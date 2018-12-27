@@ -24,6 +24,14 @@
   justify-content: center;
 }
 
+.controller .badge {
+  margin-left: .5rem;
+}
+
+.controller__text-wrapper {
+  margin-right: .5rem;
+}
+
 .controller__buttons-wrapper {
   display: flex;
   flex-direction: row;
