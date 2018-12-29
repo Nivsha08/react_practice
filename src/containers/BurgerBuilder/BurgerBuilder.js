@@ -49,8 +49,15 @@ class BurgerBuilder extends Component {
     showOrderSummaryModal = () => this.setState({isModal: true});
     hideOrderSummaryModal = () => this.setState({isModal: false});
 
+    proceedToCheckout = () => {
+        alert("proceed to checkout");
+    };
+
     render() {
-        const modal = this.state.isModal ? <OrderModal hideModal={this.hideOrderSummaryModal} orderDetails={this.state} /> : null;
+        const modal = this.state.isModal ? <OrderModal show={true}
+                                                       hideModal={this.hideOrderSummaryModal}
+                                                       proceed={this.proceedToCheckout}
+                                                       orderDetails={this.state} /> : null;
         return (
           <div className="page-wrapper">
               {modal}
@@ -59,7 +66,8 @@ class BurgerBuilder extends Component {
                           minus={this.handleDecreaseIngredient}
                           plus={this.handleIncreaseIngredient} />
               <Summary sum={this.state.sum} purchasable={this.state.sum > 0}
-                       showModal={this.showOrderSummaryModal} hideModal={this.hideOrderSummaryModal} />
+                       showModal={this.showOrderSummaryModal}
+                       hideModal={this.hideOrderSummaryModal} />
           </div>
         );
     }
