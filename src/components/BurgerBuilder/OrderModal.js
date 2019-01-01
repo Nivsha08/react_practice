@@ -10,7 +10,7 @@ const orderModal = (props) => {
     ));
     return (
         <div>
-            <Backdrop show={props.show} hideModal={props.hideModal} />
+            <Backdrop show={props.show} clickMethod={props.hideModal} />
             <div className="order-modal-wrapper">
                 <div className="modal-window">
                     <div className="modal-header">

@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Sidebar from "../Navigation/Sidebar/Sidebar"
+import TopBar from "../Navigation/Topbar";
 import "./layout.scss"
 
-const layout = ( props ) => {
-    return (
-        <div className="page-wrapper">
-            { props.children }
-        </div>
-    );
-};
+class layout extends Component {
+    state = {
+        isSidebarVisible: false
+    };
+    openSidebar = () => {
+        this.setState({ isSidebarVisible: true });
+    };
+    closeSidebar = () => {
+        this.setState({ isSidebarVisible: false });
+    };
+
+    render() {
+        return (
+            <div className="page-wrapper">
+                <TopBar visible={this.state.isSidebarVisible}
+                        open={this.openSidebar}
+                        close={this.closeSidebar} />
+                <Sidebar show={this.state.isSidebarVisible}
+                         open={this.openSidebar}
+                         close={this.closeSidebar} />
+                { this.props.children }
+            </div>
+        );
+    }
+}
 
 export default layout;

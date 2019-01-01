@@ -8,6 +8,9 @@
   color: #84817a;
 }
 
+.btn-link { color: #232323; }
+.btn-link:hover { color: rgba(#232323, .7); }
+
 .logo {
   display: flex;
   align-items: center;
@@ -50,3 +53,8 @@ ul.navigation-items {
 }
 .nav-link:hover { background-color: rgba(#fff, .7); }
 .nav-link.active { border-bottom: 4px solid #feca57; background-color: rgba(#fff, .7); }
+
+@media screen and (max-width: 767px) {
+  #topbar { position: fixed; top: 0; z-index: 300; }
+  #topbar ul { display: none; }
+}

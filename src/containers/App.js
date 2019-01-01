@@ -9,7 +9,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <TopBar />
           <Layout>
             <BurgerBuilder />
           </Layout>
