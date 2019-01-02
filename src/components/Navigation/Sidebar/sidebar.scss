@@ -11,10 +11,10 @@
   background-color: #dcdde1;
   padding: 5rem 0;
   box-sizing: border-box;
-  transition: transform .3s 0s ease-out;
+  transition: transform .3s 0s ease-out !important;
 }
 
-.open { transform: translateX(0); }
+.open { transform: translate(0); }
 .close { transform: translateX(-100%); }
 
 .sidebar ul.navigation-items {

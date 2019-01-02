@@ -42,3 +42,8 @@
 }
 
 .modal-window .fas { margin-right: .5rem; }
+
+@media screen and (max-width: 767px) {
+  .summary-wrapper .alert { padding: .5rem 1rem; }
+  .summary-wrapper .alert h3 { font-size: 1.4rem; }
+}

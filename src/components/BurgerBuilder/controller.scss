@@ -56,3 +56,9 @@
 .control-button:hover { cursor: pointer; }
 .control-button:active { background-color: #cc8e35; }
 .control-button:focus { outline: none; }
+
+@media screen and (max-width: 767px) {
+  .controller { width: 100%; align-items: center; }
+  .build-controller { width: 90%; padding: .3rem 0; }
+  .controller__buttons-wrapper { width: 100%; }
+}

@@ -73,3 +73,9 @@ $meat-color: #783c28;
   height: 35px;
 }
 
+@media screen and (max-width: 767px) {
+  .burger-preview-wrapper { width: 100%; }
+  %ingredient { width: 70%; }
+  .top-bun { width: 75%; }
+  .bottom-bun { width: 75%; }
+}

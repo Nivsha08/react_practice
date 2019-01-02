@@ -4,15 +4,13 @@ import Backdrop from "../../Backdrop/Backdrop"
 import "./sidebar.scss"
 
 const sidebar = ( props ) => {
-    const classes = props.show ? ["sidebar", "open"] : ["sidebar", "close"];
+    const sidebarClasses = props.show ? ["sidebar", "open"] : ["sidebar", "close"];
     return (
         <div>
             <Backdrop show={props.show} clickMethod={props.close}/>
-            { props.show ?
-                <div className={classes.join(" ")}>
-                    <NavItems />
-                </div>
-            : null }
+            <div className={sidebarClasses.join(" ")}>
+                <NavItems />
+            </div>
         </div>
     )
 };
