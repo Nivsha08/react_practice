@@ -54,13 +54,12 @@ class BurgerBuilder extends Component {
     };
 
     render() {
-        const modal = this.state.isModal ? <OrderModal show={true}
-                                                       hideModal={this.hideOrderSummaryModal}
-                                                       proceed={this.proceedToCheckout}
-                                                       orderDetails={this.state} /> : null;
         return (
           <div className="page-wrapper">
-              {modal}
+              <OrderModal show={this.state.isModal}
+                          hideModal={this.hideOrderSummaryModal}
+                          proceed={this.proceedToCheckout}
+                          orderDetails={this.state} />
               <BurgerPreview ingredients={this.state.ingredients}/>
               <Controller ingredients={this.state.ingredients}
                           minus={this.handleDecreaseIngredient}

@@ -38,10 +38,12 @@
   flex-direction: column;
   align-items: stretch;
   border-radius: 10px;
-  transition: all .3s ease-out !important;
+  transition: transform .3s ease-out !important;
 }
-
 .modal-window .fas { margin-right: .5rem; }
+.modal-window.open { transform: translateY(0); opacity: 1; }
+.modal-window.close { transform: translateY(1000px); opacity: 0; }
+
 
 @media screen and (max-width: 767px) {
   .summary-wrapper .alert { padding: .5rem 1rem; }

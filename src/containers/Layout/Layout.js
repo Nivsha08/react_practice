@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Sidebar from "../Navigation/Sidebar/Sidebar"
-import TopBar from "../Navigation/Topbar";
+import Sidebar from "../../components/Navigation/Sidebar/Sidebar"
+import TopBar from "../../components/Navigation/Topbar";
 import "./layout.scss"
 
 class layout extends Component {

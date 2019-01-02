@@ -8,11 +8,12 @@ const orderModal = (props) => {
         .map((n, i) => (
        <li key={n.name + i}>{n.name + " (" + n.quantity + ")"}</li>
     ));
+    const classes = props.show ? ["modal-window", "open"] : ["modal-window", "close"];
     return (
         <div>
             <Backdrop show={props.show} clickMethod={props.hideModal} />
             <div className="order-modal-wrapper">
-                <div className="modal-window">
+                <div className={classes.join(" ")}>
                     <div className="modal-header">
                         <h4 className="modal-title">Review Your Order</h4>
                         <button onClick={props.hideModal} type="button" className="close">
