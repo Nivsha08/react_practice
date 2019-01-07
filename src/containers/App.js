@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.scss';
-import TopBar from "../components/Navigation/Topbar"
 import Layout from "./Layout/Layout"
 import BurgerBuilder from "./BurgerBuilder/BurgerBuilder"
 

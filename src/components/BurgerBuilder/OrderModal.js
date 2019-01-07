@@ -1,5 +1,6 @@
 import React from 'react';
 import Backdrop from "../Backdrop/Backdrop";
+import Spinner from "../Spinner/Spinner"
 import "./Summary.scss";
 
 const orderModal = (props) => {
@@ -9,6 +10,14 @@ const orderModal = (props) => {
        <li key={n.name + i}>{n.name + " (" + n.quantity + ")"}</li>
     ));
     const classes = props.show ? ["modal-window", "open"] : ["modal-window", "close"];
+    const orderSummary = props.loading ? <Spinner /> :
+        <div>
+            <h5>Your great burger contains:</h5>
+            {orderDetails}
+            <hr/>
+            <p><span className="fas fa-shopping-cart fa-lg" />
+                <strong>{"Total price: " + props.orderDetails.sum.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</strong></p>
+        </div>;
     return (
         <div>
             <Backdrop show={props.show} clickMethod={props.hideModal} />
@@ -21,11 +30,7 @@ const orderModal = (props) => {
                         </button>
                     </div>
                     <div className="modal-body">
-                        <h5>Your great burger contains:</h5>
-                        {orderDetails}
-                        <hr/>
-                        <p><span className="fas fa-shopping-cart fa-lg" />
-                            <strong>{"Total price: " + props.orderDetails.sum.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</strong></p>
+                        {orderSummary}
                     </div>
                     <div className="modal-footer">
                         <button type="button" onClick={props.hideModal} className="btn btn-secondary">Continue shopping</button>

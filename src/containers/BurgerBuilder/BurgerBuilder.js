@@ -3,6 +3,7 @@ import Controller from "../../components/BurgerBuilder/Controller"
 import BurgerPreview from "../../components/BurgerBuilder/BurgerPreview"
 import Summary from "../../components/BurgerBuilder/Summary"
 import OrderModal from "../../components/BurgerBuilder/OrderModal"
+import axios from "../../axios-orders"
 
 class BurgerBuilder extends Component {
 
@@ -16,7 +17,8 @@ class BurgerBuilder extends Component {
             {name: "Meat", quantity: 0, price: 5.50},
         ],
         sum: 0,
-        isModal: false
+        isModal: false,
+        loading: false
     };
 
     handleIncreaseIngredient = i => {
@@ -50,13 +52,39 @@ class BurgerBuilder extends Component {
     hideOrderSummaryModal = () => this.setState({isModal: false});
 
     proceedToCheckout = () => {
-        alert("proceed to checkout");
+        this.setState({ loading: true });
+        axios.get("https://randomuser.me/api/")
+            .then (d => d.data.results[0])
+            .then(d => {
+                const order = {
+                    ingredients: this.state.ingredients
+                        .filter(i => i.quantity > 0)
+                        .map(i => `${i.name} (${i.quantity})`),
+                    price: `${this.state.sum}`,
+                    customer: {
+                        name: `${d.name.title}. ${d.name.first} ${d.name.last}`,
+                        email: d.email,
+                        address: `${d.location.street}, ${d.location.city}`
+                    }
+                };
+                axios.post("/orders.json", order)
+                    .then(res => {
+                        this.setState({ loading: false });
+                        this.hideOrderSummaryModal();
+                    })
+                    .catch(err => {
+                        this.setState({ loading: false });
+                        this.hideOrderSummaryModal();
+                    });
+            })
+            .catch(err => console.log(err));
     };
 
     render() {
         return (
           <div className="page-wrapper">
               <OrderModal show={this.state.isModal}
+                          loading={this.state.loading}
                           hideModal={this.hideOrderSummaryModal}
                           proceed={this.proceedToCheckout}
                           orderDetails={this.state} />
