@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Controller from "../../components/BurgerBuilder/Controller"
-import BurgerPreview from "../../components/BurgerBuilder/BurgerPreview"
-import Summary from "../../components/BurgerBuilder/Summary"
-import OrderModal from "../../components/BurgerBuilder/OrderModal"
+import Controller from "../../components/Controller/Controller"
+import BurgerPreview from "../../components/Controller/BurgerPreview"
+import Summary from "../../components/Modal/Summary"
+import OrderModal from "../../components/Modal/OrderModal"
 import axios from "../../axios-orders"
 
 class BurgerBuilder extends Component {

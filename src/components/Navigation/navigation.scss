@@ -36,10 +36,10 @@ ul.navigation-items {
 .nav-link {
   display: flex;
   align-items: center;
-  transition: all .2s ease-out;
   text-align: center;
   box-sizing: border-box;
   height: 100%;
+  padding: 0;
 }
 
 .nav-link a {
@@ -47,12 +47,14 @@ ul.navigation-items {
   text-decoration: none;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
   height: 100%;
   width: 100%;
-  padding: 0 .2rem;
+  padding: 0 1rem;
+  transition: background-color .2s ease-out;
 }
-.nav-link:hover { background-color: rgba(#fff, .7); }
-.nav-link.active { border-bottom: 4px solid #feca57; background-color: rgba(#fff, .7); }
+.nav-link a:hover { background-color: rgba(#fff, .7); }
+.nav-link a.active { border-bottom: 4px solid #feca57; background-color: rgba(#fff, .7); }
 
 @media screen and (max-width: 767px) {
   #topbar { position: fixed; top: 0; z-index: 300; }

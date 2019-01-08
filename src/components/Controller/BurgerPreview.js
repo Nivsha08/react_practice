@@ -1,6 +1,6 @@
 import React from 'react';
-import Ingredient from "./Ingredient"
-import "./IngredientsClasses.scss"
+import Ingredient from "../Ingredients/Ingredient"
+import "../Ingredients/IngredientsClasses.scss"
 
 const burgerPreview = ( props ) => {
     const ingredientList = [
